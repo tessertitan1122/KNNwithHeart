@@ -11,11 +11,11 @@ col1, col2, col3 = st.columns(2)
 
 with col1:
    st.header("พงศกร บุญสม")
-   st.image("./img/iris1.jpg")
+   st.image("./img/Heart1.jpg")
 
 with col2:
    st.header("การทำนายโรคหัวใจ")
-   st.image("./img/iris2.jpg")
+   st.image("./img/Heart2.jpg")
 
 
 html_7 = """
@@ -72,18 +72,19 @@ sp_fbs = st.number_input("กรุณาเลือกข้อมูล Fasti
 sp_recg = st.number_input("กรุณาเลือกข้อมูล RestingECG")
 sp_m = st.number_input("กรุณาเลือกข้อมูล MaxHR")
 sp_e = st.number_input("กรุณาเลือกข้อมูล ExerciseAngina")
-
+sp_o = st.number_input("กรุณาเลือกข้อมูล Oldpeak")
+sp_esl = st.number_input("กรุณาเลือกข้อมูล EST_Slope")
 
 if st.button("ทำนายผล"):
     #st.write("ทำนาย")
-   dt = pd.read_csv("./data/iris-3.csv") 
-   X = dt.drop('variety', axis=1)
-   y = dt.variety   
+    dt = pd.read_csv("./data/Heart3.csv") 
+   X = dt.drop('HeartDisease', axis=1)
+   y = dt.HeartDisease  
 
    Knn_model = KNeighborsClassifier(n_neighbors=3)
    Knn_model.fit(X, y)  
     
-   x_input = np.array([[sp_a, sp_s, sp_c, sp_r, sp_ctr, sp_fbs, p_recg, sp_m, sp_e]])
+   x_input = np.array([[sp_a, sp_s, sp_c, sp_r, sp_ctr, sp_fbs, p_recg, sp_m, sp_e, sp_o, sp_esl]])
    st.write(Knn_model.predict(x_input))
    
    out=Knn_model.predict(x_input)
