@@ -11,11 +11,11 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.header("พงศกร บุญสม")
-    st.image("./img/Heart1.jpg")
+    st.image("./img/heart1.jpg")
 
 with col2:
     st.header("การทำนายโรคหัวใจ")
-    st.image("./img/Heart2.jpg")
+    st.image("./img/heart2.jpg")
 
 html_7 = """
 <div style="background-color:#39edf6;padding:15px;border-radius:15px 15px 15px 15px;border-style:'solid';border-color:black">
